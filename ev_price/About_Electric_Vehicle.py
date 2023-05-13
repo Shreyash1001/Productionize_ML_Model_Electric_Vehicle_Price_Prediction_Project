@@ -4,7 +4,7 @@ import pandas as pd
 st.set_page_config(page_title="Dataset", page_icon="🔌",layout="wide")
 st.title(':black[Electric Vehicle Price Prediction]')
 st.header(':red[Innomatics Research Labs]')
-st.caption('Project By PRASAD JADHAV')
+st.caption('Project By Shreyash Tare')
 
 df = pd.read_csv('electric_vehicle_clean.csv')
 
