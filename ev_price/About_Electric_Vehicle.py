@@ -16,23 +16,26 @@ dir_of_interest = os.path.join(PARENT_DIR, "resources")
 
 DATA_PATH = os.path.join(dir_of_interest, "data", "electric_vehicle_clean.csv")
 
+# Load the CSV file into a pandas DataFrame object
+df = pd.read_csv(DATA_PATH)
+
 dt = st.radio('Show in Dataset (Head/Tail)',('Head','Tail'))
 
 if dt == 'Head':
-    st.dataframe(DATA_PATH.head(10))
+    st.dataframe(df.head(10))
 else:
-    st.dataframe(DATA_PATH.tail(10))
+    st.dataframe(df.tail(10))
 
 ds = st.checkbox('Show the whole Dataset')
 if ds:
-    st.dataframe(DATA_PATH)
+    st.dataframe(df)
 
 sh = st.selectbox('Check',('Select','Shape','Columns','Statistical Description'))
 if sh == 'Shape':
-    st.write(DATA_PATH.shape)
+    st.write(df.shape)
 elif sh == 'Columns':
-    st.write(DATA_PATH.columns)
+    st.write(df.columns)
 elif sh == 'Select':
-    " "
+    pass # Do nothing
 elif sh == 'Statistical Description':
-    st.write(DATA_PATH.describe())
+    st.write(df.describe())
